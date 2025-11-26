@@ -13,5 +13,16 @@ body {
   display: flex;
   flex-direction: column;
   align-items: center;
+  width: 100%;
+  height: 100%;
+}
+
+canvas {
+  display: block !important;
+  max-width: none !important;
+  max-height: none !important;
+  width: 1200px !important;
+  height: 800px !important;
+  flex-shrink: 0;
 }
 
