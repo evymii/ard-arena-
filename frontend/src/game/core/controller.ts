@@ -98,7 +98,7 @@ export abstract class BaseController {
       const f = this.fighters[i];
       f.setArena(this.arena);
     }
-    this.fighters[1].setX(470);
+    this.fighters[1].setX(940);
   }
 
   fighterAttacked(fighter: Fighter, damage: number): void {

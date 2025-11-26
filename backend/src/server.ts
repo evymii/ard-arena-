@@ -16,10 +16,30 @@ const games = new GameCollection();
 
 app.use(express.static(__dirname + '/../../frontend/dist'));
 
-const PORT = process.env.PORT || 55555;
+const PORT = Number(process.env.PORT) || 55555;
 
-server.listen(PORT, () => {
+// Set SO_REUSEADDR to allow immediate port reuse (handles TIME_WAIT state)
+server.listen(PORT, '0.0.0.0', () => {
   console.log(`Server listening on port ${PORT}`);
+});
+
+// Enable SO_REUSEADDR before listening
+server.on('listening', () => {
+  const address = server.address();
+  if (address && typeof address !== 'string') {
+    server.setTimeout(0);
+  }
+});
+
+server.on('error', (err: NodeJS.ErrnoException) => {
+  if (err.code === 'EADDRINUSE') {
+    console.error(`\n❌ Port ${PORT} is already in use!`);
+    console.error(`\nTo kill the process, run:`);
+    console.error(`   lsof -ti:${PORT} | xargs kill -9\n`);
+    process.exit(1);
+  } else {
+    throw err;
+  }
 });
 
 const Responses = {

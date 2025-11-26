@@ -3,9 +3,9 @@ export const CONFIG = {
   ARENAS: "arenas/",
   FIGHTERS: "fighters/",
   STEP_DURATION: 80,
-  PLAYER_TOP: 230,
+  PLAYER_TOP: 600,
   BLOCK_DAMAGE: 0.2,
-  ARENA_WIDTH: 600,
-  ARENA_HEIGHT: 400
+  ARENA_WIDTH: 1200,
+  ARENA_HEIGHT: 800
 } as const;
 

@@ -61,7 +61,7 @@ export class Fighter {
     this.game = options.game;
     this.orientation = options.orientation;
     this.position = {
-      x: 50,
+      x: 100,
       y: CONFIG.PLAYER_TOP
     };
   }
