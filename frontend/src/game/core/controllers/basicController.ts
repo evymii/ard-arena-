@@ -2,6 +2,7 @@ import { BaseController, type GameOptions } from '../controller';
 import { MoveType } from '../moveTypes';
 import { Orientation } from '../orientations';
 import type { Fighter } from '../../fighters/fighter';
+import { MobileController } from './mobileController';
 
 export const KEYS = {
   RIGHT: 39,
@@ -18,6 +19,7 @@ export const KEYS = {
 export class BasicController extends BaseController {
   private player: number = 0;
   private pressed: Record<number, boolean> = {};
+  private mobileController: MobileController | null = null;
 
   constructor(options: GameOptions) {
     super(options);
@@ -26,6 +28,25 @@ export class BasicController extends BaseController {
   protected initialize(): void {
     this.player = 0;
     this.addHandlers();
+    this.initMobileController();
+  }
+
+  private initMobileController(): void {
+    if (this.arena && this.arena.container) {
+      this.mobileController = new MobileController(
+        this.arena.container,
+        (keyCode: number, pressed: boolean) => {
+          if (pressed) {
+            this.pressed[keyCode] = true;
+          } else {
+            delete this.pressed[keyCode];
+          }
+          const f = this.fighters[this.player];
+          const move = this.getMove(this.pressed, KEYS, this.player);
+          this.moveFighter(f, move);
+        }
+      );
+    }
   }
 
   private addHandlers(): void {
@@ -124,5 +145,13 @@ export class BasicController extends BaseController {
       return MoveType.HIGH_PUNCH;
     }
     return null;
+  }
+
+  reset(): void {
+    if (this.mobileController) {
+      this.mobileController.destroy();
+      this.mobileController = null;
+    }
+    super.reset();
   }
 }
