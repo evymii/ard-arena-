@@ -1,10 +1,10 @@
-import { Socket } from 'socket.io';
+import { Socket } from "socket.io";
 
 export const Messages = {
-  EVENT: 'event',
-  LIFE_UPDATE: 'life-update',
-  POSITION_UPDATE: 'position-update',
-  PLAYER_CONNECTED: 'player-connected'
+  EVENT: "event",
+  LIFE_UPDATE: "life-update",
+  POSITION_UPDATE: "position-update",
+  PLAYER_CONNECTED: "player-connected",
 } as const;
 
 export class Game {
@@ -63,11 +63,11 @@ export class Game {
       p1.emit(m.POSITION_UPDATE, data);
     });
 
-    p1.on('disconnect', () => {
+    p1.on("disconnect", () => {
       self.endGame(0);
     });
 
-    p2.on('disconnect', () => {
+    p2.on("disconnect", () => {
       self.endGame(1);
     });
   }
@@ -106,4 +106,3 @@ export class GameCollection {
     return false;
   }
 }
-
