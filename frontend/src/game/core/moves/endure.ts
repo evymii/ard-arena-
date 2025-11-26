@@ -27,4 +27,3 @@ export class Endure extends Move {
     this.currentStep += 1;
   }
 }
-

@@ -20,4 +20,3 @@ export class Uppercut extends Attack {
     }
   }
 }
-

@@ -7,4 +7,3 @@ export class SquatHighKick extends Attack {
     super(owner, MoveType.SQUAT_HIGH_KICK, 4, 6, 70, MoveType.SQUAT, 2);
   }
 }
-

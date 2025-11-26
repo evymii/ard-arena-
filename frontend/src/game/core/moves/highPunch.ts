@@ -7,4 +7,3 @@ export class HighPunch extends Attack {
     super(owner, MoveType.HIGH_PUNCH, 5, 8);
   }
 }
-

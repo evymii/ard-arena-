@@ -15,4 +15,3 @@ export class Block extends FiniteMove {
     }
   }
 }
-

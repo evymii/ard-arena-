@@ -68,4 +68,3 @@ export class JumpPunch extends JumpAttack {
     super(owner, type, 9, isForward);
   }
 }
-

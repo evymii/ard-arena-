@@ -19,4 +19,3 @@ export class Win extends FiniteMove {
     this.bottom = this.owner.getBottom();
   }
 }
-

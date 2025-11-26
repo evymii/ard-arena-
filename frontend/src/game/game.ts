@@ -1,9 +1,16 @@
-import { BaseController, GamePromise, type GameOptions } from './core/controller';
-import { BasicController } from './core/controllers/basicController';
-import { MultiplayerController } from './core/controllers/multiplayerController';
-import { NetworkController, type NetworkGameOptions } from './core/controllers/networkController';
+import {
+  BaseController,
+  GamePromise,
+  type GameOptions,
+} from "./core/controller";
+import { BasicController } from "./core/controllers/basicController";
+import { MultiplayerController } from "./core/controllers/multiplayerController";
+import {
+  NetworkController,
+  type NetworkGameOptions,
+} from "./core/controllers/networkController";
 
-export type GameType = 'basic' | 'network' | 'multiplayer';
+export type GameType = "basic" | "network" | "multiplayer";
 
 export interface StartOptions extends GameOptions {
   gameType?: GameType;
@@ -15,17 +22,17 @@ export interface StartOptions extends GameOptions {
 let game: BaseController | null = null;
 
 export function start(options: StartOptions): GamePromise {
-  const type = (options.gameType || 'basic').toLowerCase() as GameType;
+  const type = (options.gameType || "basic").toLowerCase() as GameType;
   const promise = new GamePromise();
 
   switch (type) {
-    case 'basic':
+    case "basic":
       game = new BasicController(options);
       break;
-    case 'network':
+    case "network":
       game = new NetworkController(options as NetworkGameOptions);
       break;
-    case 'multiplayer':
+    case "multiplayer":
       game = new MultiplayerController(options);
       break;
     default:
@@ -46,4 +53,3 @@ export function reset(): void {
 export function getGame(): BaseController | null {
   return game;
 }
-

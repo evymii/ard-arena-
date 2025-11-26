@@ -1,4 +1,4 @@
-import { Orientation, type Orientation as OrientationType } from '../core/orientations';
+import { type Orientation as OrientationType } from '../core/orientations';
 import { MoveType } from '../core/moveTypes';
 import { CONFIG } from '../core/config';
 import { Move } from '../core/move';
@@ -297,4 +297,3 @@ export class Fighter {
     return this.currentMove;
   }
 }
-

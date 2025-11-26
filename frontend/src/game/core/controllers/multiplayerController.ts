@@ -58,7 +58,7 @@ export class MultiplayerController extends BaseController {
     }, false);
   }
 
-  private getMove(pressed: Record<number, boolean>, k: typeof KEYS_P1, p: number): MoveType | null {
+  private getMove(pressed: Record<number, boolean>, k: typeof KEYS_P1 | typeof KEYS_P2, p: number): MoveType | null {
     const f = this.fighters[p];
     const leftOrient = 'left' as const;
     const rightOrient = 'right' as const;
@@ -140,4 +140,3 @@ export class MultiplayerController extends BaseController {
     }
   }
 }
-

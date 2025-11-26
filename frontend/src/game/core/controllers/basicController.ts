@@ -29,7 +29,6 @@ export class BasicController extends BaseController {
   }
 
   private addHandlers(): void {
-    const self = this;
     const f = this.fighters[this.player];
 
     document.addEventListener('keydown', (e) => {
@@ -127,4 +126,3 @@ export class BasicController extends BaseController {
     return null;
   }
 }
-

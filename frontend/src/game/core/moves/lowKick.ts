@@ -7,4 +7,3 @@ export class LowKick extends Attack {
     super(owner, MoveType.LOW_KICK, 6, 6);
   }
 }
-

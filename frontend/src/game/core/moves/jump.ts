@@ -53,4 +53,3 @@ export class Jump extends Move {
     this.owner.lock();
   }
 }
-

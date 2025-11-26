@@ -7,4 +7,3 @@ export class LowPunch extends Attack {
     super(owner, MoveType.LOW_PUNCH, 5, 5);
   }
 }
-

@@ -12,4 +12,3 @@ export class Fall extends FiniteMove {
     this.keepDistance();
   }
 }
-

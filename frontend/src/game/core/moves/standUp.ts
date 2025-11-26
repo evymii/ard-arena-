@@ -18,4 +18,3 @@ export class StandUp extends FiniteMove {
     this.keepDistance();
   }
 }
-

@@ -39,4 +39,3 @@ export class BackwardJump extends Move {
     }
   }
 }
-

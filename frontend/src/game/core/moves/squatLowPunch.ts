@@ -7,4 +7,3 @@ export class SquatLowPunch extends Attack {
     super(owner, MoveType.SQUAT_LOW_PUNCH, 3, 4, 70, MoveType.SQUAT, 2);
   }
 }
-

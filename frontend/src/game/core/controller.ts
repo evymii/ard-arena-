@@ -1,4 +1,5 @@
 import { Arena, type ArenaOptions } from './arena';
+import { type ArenaType as ArenaTypeValue } from './arenaTypes';
 import { Orientation } from './orientations';
 import { MoveType } from './moveTypes';
 import { Fighter } from '../fighters/fighter';
@@ -31,7 +32,7 @@ export abstract class BaseController {
     this.initializeFighters(options.fighters);
     const arenaOptions: ArenaOptions = {
       fighters: this.fighters,
-      arena: options.arena.arena,
+      arena: options.arena.arena as ArenaTypeValue,
       width: options.arena.width,
       height: options.arena.height,
       container: options.arena.container,
@@ -187,4 +188,3 @@ export class GamePromise {
     this.callbacks.push(callback);
   }
 }
-

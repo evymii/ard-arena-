@@ -23,4 +23,3 @@ export class AttractiveStandUp extends FiniteMove {
     this.owner.setY(CONFIG.PLAYER_TOP);
   }
 }
-

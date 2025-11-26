@@ -40,4 +40,3 @@ export class KnockDown extends Move {
     this.currentStep += 1;
   }
 }
-
