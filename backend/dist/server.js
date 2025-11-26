@@ -17,16 +17,17 @@ const io = new socket_io_1.Server(server, {
 });
 const games = new gameService_1.GameCollection();
 app.use(express_1.default.static(__dirname + '/../../frontend/dist'));
-const PORT = process.env.PORT || 55555;
-// Set SO_REUSEADDR to allow immediate port reuse
+const PORT = Number(process.env.PORT) || 55555;
+// Set SO_REUSEADDR to allow immediate port reuse (handles TIME_WAIT state)
+server.listen(PORT, '0.0.0.0', () => {
+    console.log(`Server listening on port ${PORT}`);
+});
+// Enable SO_REUSEADDR before listening
 server.on('listening', () => {
     const address = server.address();
     if (address && typeof address !== 'string') {
         server.setTimeout(0);
     }
-});
-server.listen(PORT, () => {
-    console.log(`Server listening on port ${PORT}`);
 });
 server.on('error', (err) => {
     if (err.code === 'EADDRINUSE') {

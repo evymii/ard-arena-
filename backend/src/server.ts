@@ -16,7 +16,7 @@ const games = new GameCollection();
 
 app.use(express.static(__dirname + '/../../frontend/dist'));
 
-const PORT = process.env.PORT || 55555;
+const PORT = Number(process.env.PORT) || 55555;
 
 // Set SO_REUSEADDR to allow immediate port reuse (handles TIME_WAIT state)
 server.listen(PORT, '0.0.0.0', () => {
